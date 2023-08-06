@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import express from "express";
 import { errorHandler } from "./middlewares/error_handler.js";
 import sessionsRouter from './routes/sessions.js';
+import storiesRouter from './routes/stories.js';
 import usersRouter from './routes/users.js';
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(cors({
 // routes
 app.use('/api/users', usersRouter);
 app.use('/api/sessions', sessionsRouter);
+app.use('/api/stories', storiesRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running at port: ${process.env.PORT}`);
